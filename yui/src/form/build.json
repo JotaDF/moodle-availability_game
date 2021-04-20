@@ -1,0 +1,10 @@
+{
+  "name": "moodle-availability_game-form",
+  "builds": {
+    "moodle-availability_game-form": {
+      "jsfiles": [
+        "form.js"
+      ]
+    }
+  }
+}
