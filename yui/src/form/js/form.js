@@ -30,7 +30,7 @@ M.availability_game = M.availability_game || {}; // eslint-disable-line
  * @class M.availability_game.form
  * @extends M.core_availability.plugin
  */
-M.availability_game.form = Y.Object(M.core_availability.plugin); // eslint-disable-line
+M.availability_game.form = Y.Object(M.core_availability.plugin); 
 
 /**
  * Groupings available for selection (alphabetical order).
@@ -100,3 +100,5 @@ M.availability_game.form.fillValue = function(value, node) {
         value.restrictlevel = field.substr(3);
     }
 };
+
+

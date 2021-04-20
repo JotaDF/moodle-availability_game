@@ -44,16 +44,16 @@ M.availability_game.form.leeks = null;
  * Initialises this plugin.
  *
  * @method initInner
- * @param {Array} standardFields Array of objects with .field, .display
- * @param {Array} customFields Array of objects with .field, .display
+ * @param {Array} levelsfromstart Array of objects with .field, .display
  */
-M.availability_game.form.initInner = function(standardFields) {
-    this.levels = standardFields;
+M.availability_game.form.initInner = function(levelsfromstart) {
+    this.levels = levelsfromstart;
 };
 
 M.availability_game.form.getNode = function(json) {
     // Create HTML structure.
-    var html = '<span class="availability-group"><label><label>' + M.util.get_string('conditiontitle', 'availability_game') + '</label> ' +
+    var html = '<span class="availability-group"><label><label>' +
+            M.util.get_string('conditiontitle', 'availability_game') + '</label> ' +
             '<select class="custom-select" name="field">' +
             '<option value="choose">' + M.util.get_string('choosedots', 'moodle') + '</option>';
     var fieldInfo;
