@@ -37,6 +37,31 @@ require_once($CFG->libdir . '/blocklib.php');
 class frontend extends \core_availability\frontend {
 
     /**
+     * Decides whether this plugin should be available in a given course. The
+     * plugin can do this depending on course or system settings.
+     *
+     * @param stdClass $course Course object
+     * @param \cm_info $cm Course-module currently being edited (null if none)
+     * @param \section_info $section Section currently being edited (null if none)
+     * @return bool False when adding is disabled.
+     */
+    protected function allow_add($course, \cm_info $cm = null, \section_info $section = null) {
+        global $DB;
+        $coursecontext = \context_course::instance($course->id);
+        $blockrecords = $DB->get_records('block_instances', array('blockname' => 'game', 'parentcontextid' => $coursecontext->id));
+        $count = 0;
+        foreach ($blockrecords as $b) {
+            $count++;
+        }
+        if ($count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        return false;
+    }
+
+    /**
      * Get javascript init params.
      *
      * @return mixed the level time spent in seconds
