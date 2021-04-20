@@ -24,7 +24,7 @@ YUI.add('moodle-availability_game-form', function (Y, NAME) {
  *
  * @module moodle-availability_game-form
  */
-M.availability_game = M.availability_game || {};
+M.availability_game = M.availability_game || {}; // eslint-disable-line
 
 /**
  * @class M.availability_game.form
@@ -53,10 +53,9 @@ M.availability_game.form.initInner = function(standardFields) {
 
 M.availability_game.form.getNode = function(json) {
     // Create HTML structure.
-    var strings = M.str.availability_game;
-    var html = '<span class="availability-group"><label><label>' + strings.conditiontitle + '</label> ' +
+    var html = '<span class="availability-group"><label><label>' + M.util.get_string('conditiontitle', 'availability_game') + '</label> ' +
             '<select class="custom-select" name="field">' +
-            '<option value="choose">' + M.str.moodle.choosedots + '</option>';
+            '<option value="choose">' + M.util.get_string('choosedots', 'moodle') + '</option>';
     var fieldInfo;
     for (var i = 0; i < this.levels.length; i++) {
         fieldInfo = this.levels[i];
