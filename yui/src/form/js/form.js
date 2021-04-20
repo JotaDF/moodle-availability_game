@@ -24,13 +24,13 @@
  *
  * @module moodle-availability_game-form
  */
-M.availability_game = M.availability_game || {}; // eslint-disable-line no-alert
+M.availability_game = M.availability_game || {}; // eslint-disable-line
 
 /**
  * @class M.availability_game.form
  * @extends M.core_availability.plugin
  */
-M.availability_game.form = Y.Object(M.core_availability.plugin);
+M.availability_game.form = Y.Object(M.core_availability.plugin); // eslint-disable-line
 
 /**
  * Groupings available for selection (alphabetical order).
