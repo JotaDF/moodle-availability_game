@@ -40,7 +40,7 @@ class condition extends \core_availability\condition {
 
     /** @var int userlevel 0..12  */
     protected $userlevel = 0;
-    
+
     /**
      * Constructor.
      *
@@ -56,7 +56,6 @@ class condition extends \core_availability\condition {
         }
     }
 
- 
     /**
      * Saves tree data back to a structure object.
      *
@@ -76,7 +75,7 @@ class condition extends \core_availability\condition {
      * @return stdClass Object representing condition
      */
     public static function get_json($restrictlevel = 0) {
-        return (object) ['type' => $this->get_type(), 'restrictlevel' => $restrictlevel];
+        return (object) ['type' => self::get_type(), 'restrictlevel' => $restrictlevel];
     }
 
     /**
@@ -124,7 +123,7 @@ class condition extends \core_availability\condition {
         $message = get_string('levelnrequiredtoaccess', 'availability_game', $this->restrictlevel);
         if ($not) {
             $message = get_string('levelnnotrequiredtoaccess', 'availability_game', $this->restrictlevel);
-        } 
+        }
         return $message;
     }
 
@@ -146,18 +145,18 @@ class condition extends \core_availability\condition {
      * @return int The user level.
      */
     protected function get_user_level($courseid, $userid) {
-            global $DB;
-    if (!empty($userid) && !empty($courseid)) {
-        $sql = 'SELECT level FROM {block_game} '
-                . 'WHERE userid=' . $userid . ' AND courseid=' . $courseid;
-        $busca = $DB->get_record_sql($sql);
-        if (isset($busca->level)) {
-            return $busca->level;
-        } else {
-            return 0;
+        global $DB;
+        if (!empty($userid) && !empty($courseid)) {
+            $sql = 'SELECT level FROM {block_game} '
+                    . 'WHERE userid=' . $userid . ' AND courseid=' . $courseid;
+            $busca = $DB->get_record_sql($sql);
+            if (isset($busca->level)) {
+                return $busca->level;
+            } else {
+                return 0;
+            }
         }
-    }
-    return 0;
+        return 0;
     }
 
 }

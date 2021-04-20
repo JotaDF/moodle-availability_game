@@ -25,7 +25,7 @@
 namespace availability_game;
 
 defined('MOODLE_INTERNAL') || die();
-require_once $CFG->libdir . '/blocklib.php';
+require_once($CFG->libdir . '/blocklib.php');
 
 /**
  * Frontend class.
