@@ -24,7 +24,7 @@ YUI.add('moodle-availability_game-form', function (Y, NAME) {
  *
  * @module moodle-availability_game-form
  */
-M.availability_game = M.availability_game || {}; // eslint-disable-line
+M.availability_game = M.availability_game || {};
 
 /**
  * @class M.availability_game.form
@@ -38,7 +38,7 @@ M.availability_game.form = Y.Object(M.core_availability.plugin);
  * @property levels
  * @type Array
  */
-M.availability_game.form.leeks = null;
+M.availability_game.form.levels = null;
 
 /**
  * Initialises this plugin.
@@ -76,12 +76,18 @@ M.availability_game.form.getNode = function(json) {
         M.availability_game.form.addedEvents = true;
         var updateForm = function(input) {
             var ancestorNode = input.ancestor('span.availability_game');
+            var op = ancestorNode.one('select[name=op]');
+            var novalue = (op.get('value') === 'isempty' || op.get('value') === 'isnotempty');
+            ancestorNode.one('input[name=value]').set('disabled', novalue);
             M.core_availability.form.update();
         };
         var root = Y.one('#fitem_id_availabilityconditionsjson');
         root.delegate('change', function() {
              updateForm(this);
         }, '.availability_game select');
+        root.delegate('change', function() {
+             updateForm(this);
+        }, '.availability_game input[name=value]');
     }
 
     return node;
@@ -90,8 +96,8 @@ M.availability_game.form.getNode = function(json) {
 M.availability_game.form.fillValue = function(value, node) {
     // Set field.
     var field = node.one('select[name=field]').get('value');
-    if (field.substr(0, 2) === 'l_') {
-        value.restrictlevel = field.substr(2);
+    if (field.substr(0, 3) === 'l_') {
+        value.restrictlevel = field.substr(3);
     }
 };
 

@@ -24,7 +24,7 @@ YUI.add('moodle-availability_game-form', function (Y, NAME) {
  *
  * @module moodle-availability_game-form
  */
-M.availability_game = M.availability_game || {}; // eslint-disable-line
+M.availability_game = M.availability_game || {};
 
 /**
  * @class M.availability_game.form

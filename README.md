@@ -6,7 +6,7 @@ Moodle plugin to limit the access to course content according to the user level 
 Features
 --------
 
-- Restrict access to users with a level greater than or equal to level X..
+- Restrict access to users with a level greater than or equal to a certain level.
 
 Requirements
 ------------
