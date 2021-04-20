@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2021033038;
+$plugin->version   = 2021033039;
 $plugin->requires  = 2017111300;
 $plugin->component = 'availability_game';
 $plugin->release   = '1.0.0';
