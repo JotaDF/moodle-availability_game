@@ -19,12 +19,13 @@ YUI.add('moodle-availability_game-form', function (Y, NAME) {
  * @copyright  2021 Jose Wilson
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 /**
- * JavaScript for form editing level conditions.
+ * JavaScript for form editing week conditions.
  *
  * @module moodle-availability_game-form
  */
-M.availability_game = M.availability_game || {};
+M.availability_game = M.availability_game || {}; // eslint-disable-line
 
 /**
  * @class M.availability_game.form
@@ -100,5 +101,4 @@ M.availability_game.form.fillValue = function(value, node) {
         value.restrictlevel = field.substr(3);
     }
 };
-
 }, '@VERSION@', {"requires": ["base", "node", "event", "moodle-core_availability-form"]});
