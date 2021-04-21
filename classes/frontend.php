@@ -83,11 +83,11 @@ class frontend extends \core_availability\frontend {
         $levelarray = array();
         if (isset($blockinstance->config->level_number)) {
             for ($i = 1; $i <= $blockinstance->config->level_number; $i++) {
-                $levelarray[] = (object)array('id' => $i, 'name' => get_string('label_level', 'block_game') . ' '. $i);
+                $levelarray[] = (object)array('level' => $i, 'name' => $i);
             }
         } else {
             for ($i = 1; $i <= 12; $i++) {
-                $levelarray[] = (object)array('id' => $i, 'name' => get_string('label_level', 'block_game') . ' '. $i);
+                $levelarray[] = (object)array('level' => $i, 'name' => $i);
             }
         }
         return(array($levelarray));

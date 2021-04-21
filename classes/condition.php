@@ -59,7 +59,7 @@ class condition extends \core_availability\condition {
      * @return stdClass Structure object (ready to be made into JSON format)
      */
     public function save() {
-        return (object) array('type' => $this->get_type(), 'restrictlevel' => $this->restrictlevel);
+        return (object) array('type' => 'game', 'restrictlevel' => $this->restrictlevel);
     }
 
     /**
@@ -72,7 +72,7 @@ class condition extends \core_availability\condition {
      * @return stdClass Object representing condition
      */
     public static function get_json($restrictlevel = 0) {
-        return (object) ['type' => self::get_type(), 'restrictlevel' => $restrictlevel];
+        return (object) ['type' => 'game', 'restrictlevel' => $restrictlevel];
     }
 
     /**
@@ -131,7 +131,7 @@ class condition extends \core_availability\condition {
      * @return string Text representation of parameters
      */
     protected function get_debug_string() {
-        return $this->get_type() . ':' . $this->restrictlevel;
+        return 'game' . ':' . $this->restrictlevel;
     }
 
     /**
