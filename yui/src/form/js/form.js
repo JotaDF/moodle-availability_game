@@ -3,7 +3,7 @@
  *
  * @module moodle-availability_game-form
  */
-M.availability_game = M.availability_game || {};
+M.availability_game = M.availability_game || {}; // eslint-disable-line
 
 /**
  * @class M.availability_game.form
@@ -48,7 +48,7 @@ M.availability_game.form.getNode = function(json) {
         if (json.id !== undefined &&
                 node.one('select[name=id] > option[value=' + json.id + ']')) {
             node.one('select[name=id]').set('value', '' + json.id);
-        } 
+        }
     }
 
     // Add event handlers (first time only).
