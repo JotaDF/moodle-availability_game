@@ -49,10 +49,8 @@ class condition extends \core_availability\condition {
      */
     public function __construct($structure) {
         if (isset($structure->restrictlevel)) {
+            //echo 'RESTRICAO: ' . $structure->restrictlevel;
             $this->restrictlevel = $structure->restrictlevel;
-        }
-        if (isset($structure->userlevel)) {
-            $this->userlevel = $structure->userlevel;
         }
     }
 
@@ -99,6 +97,7 @@ class condition extends \core_availability\condition {
 
         if ($this->restrictlevel > 0) {
             $this->userlevel = $this->get_user_level($info->get_course()->id, $userid);
+            //echo 'LEVEL USER: ' . $this->userlevel;
             $available = $this->userlevel >= $this->restrictlevel;
             if ($not) {
                 $available = !$available;

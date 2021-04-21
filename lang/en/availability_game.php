@@ -34,3 +34,5 @@ $string['conditiontitle'] = 'Available from Level';
 $string['pluginname'] = 'Availability restriction by game level';
 $string['privacy:metadata'] = 'The plugin does not store any personal data.';
 $string['title'] = 'Level of game';
+$string['invalidlevel'] = 'Invalid level';
+$string['error_selectlevel'] = 'You must select a level.';

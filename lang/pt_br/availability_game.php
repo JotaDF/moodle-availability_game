@@ -34,3 +34,5 @@ $string['conditiontitle'] = 'Disponível a partir do Nível';
 $string['pluginname'] = 'Restrição de disponibilidade por nível do jogo.';
 $string['privacy:metadata'] = 'O plugin não armazena nenhum dado pessoal.';
 $string['title'] = 'Nível de jogo';
+$string['invalidlevel'] = 'Nível inválido';
+$string['error_selectlevel'] = 'Você deve selecionar um nível.';

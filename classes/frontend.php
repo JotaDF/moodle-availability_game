@@ -53,12 +53,7 @@ class frontend extends \core_availability\frontend {
         foreach ($blockrecords as $b) {
             $count++;
         }
-        if ($count > 0) {
-            return true;
-        } else {
-            return false;
-        }
-        return false;
+        return $count > 0;
     }
 
     /**
@@ -88,13 +83,16 @@ class frontend extends \core_availability\frontend {
         $levelarray = array();
         if (isset($blockinstance->config->level_number)) {
             for ($i = 1; $i <= $blockinstance->config->level_number; $i++) {
-                $levelarray[$i] = $i;
+                $levelarray[] = (object)array('id' => $i, 'name' => get_string('label_level', 'block_game') . ' '. $i);
+                //$levelarray[$i] = $i;
             }
         } else {
-            $levelarray = array('0' => '0', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6',
-                '7' => '7', '8' => '8', '9' => '9', '10' => '10', '11' => '11', '12' => '12');
+            for ($i = 1; $i <= 12; $i++) {
+                $levelarray[] = (object)array('id' => $i, 'name' => get_string('label_level', 'block_game') . ' '. $i);
+                //$levelarray[$i] = $i;
+            }
         }
-        return(array(self::convert_associative_array_for_js($levelarray, 'field', 'display')));
+        return(array($levelarray));
     }
 
 }
