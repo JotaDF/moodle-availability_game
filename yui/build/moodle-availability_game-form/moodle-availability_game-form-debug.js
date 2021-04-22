@@ -1,4 +1,5 @@
 YUI.add('moodle-availability_game-form', function (Y, NAME) {
+
 /**
  * JavaScript for form editing level game conditions.
  *
