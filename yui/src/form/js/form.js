@@ -48,6 +48,8 @@ M.availability_game.form.getNode = function(json) {
         if (json.restrictlevel !== undefined &&
                 node.one('select[name=level] > option[value=' + json.restrictlevel + ']')) {
             node.one('select[name=level]').set('value', '' + json.restrictlevel);
+        }else if (json.restrictlevel === undefined) {
+            node.one('select[name=level]').set('value', 'choose');
         }
     }
 
