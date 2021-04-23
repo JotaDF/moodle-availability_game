@@ -87,4 +87,4 @@ M.availability_game.form.fillErrors = function(errors, node) {
 };
 
 
-}, '@VERSION@', {"requires": ["base", "node", "event", "moodle-core_availability-form"]});
+}, '@VERSION@', {"requires": ["base", "node", "event", "io", "moodle-core_availability-form"]});
