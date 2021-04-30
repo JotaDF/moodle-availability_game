@@ -25,11 +25,11 @@ M.availability_game.form.levels = null;
  * @method initInner
  * @param {Array} levels Array of objects containing level
  */
-M.availability_game.form.initInner = function(levels) {
+M.availability_game.form.initInner = function (levels) {
     this.levels = levels;
 };
 
-M.availability_game.form.getNode = function(json) {
+M.availability_game.form.getNode = function (json) {
     // Create HTML structure.
     var html = '<label><span class="pr-3">' + M.util.get_string('conditiontitle', 'availability_game') + '</span> ' +
             '<span class="availability_game">' +
@@ -44,42 +44,30 @@ M.availability_game.form.getNode = function(json) {
     var node = Y.Node.create('<span class="form-inline">' + html + '</span>');
 
     // Set initial values (leave default 'choose' if creating afresh).
-    if (json.creating === undefined) {
-        if (json.restrictlevel !== undefined &&
-                node.one('select[name=level] > option[value=' + json.restrictlevel + ']')) {
-            node.one('select[name=level]').set('value', '' + json.restrictlevel);
-        } else if (json.restrictlevel === undefined) {
-            node.one('select[name=level]').set('value', 'choose');
-        }
+    if (typeof json.restrictlevel !== 'undefined') {
+        node.one('select[name=level]').set('value', '' + json.restrictlevel);
+    } else if (typeof json.restrictlevel === 'undefined') {
+        node.one('select[name=level]').set('value', 'choose');
     }
 
-    // Add event handlers (first time only).
-    if (!M.availability_game.form.addedEvents) {
-        M.availability_game.form.addedEvents = true;
-        var root = Y.one('.availability-field');
-        root.delegate('change', function() {
-            // Just update the form fields.
-            M.core_availability.form.update();
-        }, '.availability_game select');
-    }
-
+    // When any select chances.
+    Y.one('#fitem_id_availabilityconditionsjson, .availability-field').delegate('change', function () {
+        M.core_availability.form.update();
+    }, '.availability_game select');
     return node;
 };
 
-M.availability_game.form.fillValue = function(value, node) {
+M.availability_game.form.fillValue = function (value, node) {
     var selected = node.one('select[name=level]').get('value');
-    if (selected === 'choose') {
-        value.restrictlevel = 'choose';
-    } else {
+    if (selected !== 'choose') {
         value.restrictlevel = parseInt(selected, 10);
     }
 };
 
-M.availability_game.form.fillErrors = function(errors, node) {
-    var value = {};
-    this.fillValue(value, node);
+M.availability_game.form.fillErrors = function (errors, node) {
+    var selected = node.one('select[name=level]').get('value');
     // Check level item level.
-    if (value.level && value.level === 'choose') {
+    if (selected && selected === 'choose') {
         errors.push('availability_game:error_selectlevel');
     }
 };
