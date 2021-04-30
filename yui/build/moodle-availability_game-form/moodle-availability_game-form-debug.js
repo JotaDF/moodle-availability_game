@@ -1,3 +1,5 @@
+YUI.add('moodle-availability_game-form', function (Y, NAME) {
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -94,3 +96,6 @@ M.availability_game.form.fillErrors = function(errors, node) {
         errors.push('availability_game:error_selectlevel');
     }
 };
+
+
+}, '@VERSION@', {"requires": ["base", "node", "event", "io", "moodle-core_availability-form"]});
