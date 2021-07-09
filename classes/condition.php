@@ -145,8 +145,8 @@ class condition extends \core_availability\condition {
         global $DB;
         if (!empty($userid) && !empty($courseid)) {
             $sql = 'SELECT level FROM {block_game} '
-                    . 'WHERE userid=' . $userid . ' AND courseid=' . $courseid;
-            $busca = $DB->get_record_sql($sql);
+                    . 'WHERE userid=? AND courseid= ? ';
+            $busca = $DB->get_record_sql($sql, [$userid, $courseid]);
             if (isset($busca->level)) {
                 return $busca->level;
             } else {
