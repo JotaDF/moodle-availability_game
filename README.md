@@ -11,7 +11,7 @@ Features
 Requirements
 ------------
 
-- Moodle 3.4 or greater.
+- Moodle 3.5 or greater.
 - Block Game
 
 How to use

@@ -24,10 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2021042124;
+$plugin->version   = 2022042600;
 $plugin->requires  = 2017111300;
 $plugin->component = 'availability_game';
-$plugin->release   = '1.0.0';
+$plugin->release   = '1.1.0';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->dependencies = array(
     'block_game'  => 2021033029,

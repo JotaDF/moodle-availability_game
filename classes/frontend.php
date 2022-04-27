@@ -37,8 +37,6 @@ require_once($CFG->libdir . '/blocklib.php');
 class frontend extends \core_availability\frontend {
 
     /**
-     * Decides whether this plugin should be available in a given course. The
-     * plugin can do this depending on course or system settings.
      *
      * @param stdClass $course Course object
      * @param \cm_info $cm Course-module currently being edited (null if none)
@@ -86,7 +84,7 @@ class frontend extends \core_availability\frontend {
                 $levelarray[] = (object)array('level' => $i, 'name' => $i);
             }
         } else {
-            for ($i = 1; $i <= 12; $i++) {
+            for ($i = 1; $i <= 15; $i++) {
                 $levelarray[] = (object)array('level' => $i, 'name' => $i);
             }
         }
