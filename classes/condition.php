@@ -14,9 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace availability_game;
+/**
+ * Condition main class.
+ *
+ * @package    availability_game
+ * @copyright  2021 Jose Wilson
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
-defined('MOODLE_INTERNAL') || die();
+namespace availability_game;
 
 /**
  * Condition main class.
@@ -34,6 +40,8 @@ class condition extends \core_availability\condition {
     protected $userlevel = 0;
 
     /**
+     * Constructor.
+     *
      * @param \stdClass $structure Data structure from JSON decode
      * @throws \coding_exception If invalid data.
      */
@@ -53,6 +61,11 @@ class condition extends \core_availability\condition {
     }
 
     /**
+     * Returns a JSON object which corresponds to a condition of this type.
+     *
+     * Intended for unit testing, as normally the JSON values are constructed
+     * by JavaScript code.
+     *
      * @param int $restrictlevel default 0
      * @return stdClass Object representing condition
      */
@@ -61,6 +74,9 @@ class condition extends \core_availability\condition {
     }
 
     /**
+     * Determines whether a particular item is currently available
+     * according to this availability condition.
+     *
      * @param bool $not Set true if we are inverting the condition
      * @param info $info Item we're checking
      * @param bool $grabthelot Performance hint: if true, caches information
@@ -87,6 +103,11 @@ class condition extends \core_availability\condition {
     }
 
     /**
+     * Obtains a string describing this restriction (whether or not
+     * it actually applies). Used to obtain information that is displayed to
+     * students if the activity is not available to them, and for staff to see
+     * what conditions are.
+     *
      * @param bool $full Set true if this is the 'full information' view
      * @param bool $not Set true if we are inverting the condition
      * @param info $info Item we're checking
@@ -122,8 +143,8 @@ class condition extends \core_availability\condition {
         global $DB;
         if (!empty($userid) && !empty($courseid)) {
             $sql = 'SELECT level FROM {block_game} '
-                    . 'WHERE userid=? AND courseid= ? ';
-            $busca = $DB->get_record_sql($sql, [$userid, $courseid]);
+                    . 'WHERE userid=' . $userid . ' AND courseid=' . $courseid;
+            $busca = $DB->get_record_sql($sql);
             if (isset($busca->level)) {
                 return $busca->level;
             } else {

@@ -37,6 +37,8 @@ require_once($CFG->libdir . '/blocklib.php');
 class frontend extends \core_availability\frontend {
 
     /**
+     * Decides whether this plugin should be available in a given course. The
+     * plugin can do this depending on course or system settings.
      *
      * @param stdClass $course Course object
      * @param \cm_info $cm Course-module currently being edited (null if none)

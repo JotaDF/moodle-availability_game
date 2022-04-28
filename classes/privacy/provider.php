@@ -14,8 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Privacy provider.
+ *
+ * @package    availability_game
+ * @copyright  2021 Jose Wilson
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace availability_game\privacy;
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Privacy provider class.
